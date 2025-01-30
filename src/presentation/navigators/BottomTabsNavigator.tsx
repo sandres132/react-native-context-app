@@ -3,10 +3,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { HomeScreen } from '../screens/home/HomeScreen';
 import { ProfileScreen } from '../screens/profile/ProfileScreen';
 import { SettingsScreen } from '../screens/settings/SettingsScreen';
+import { useCounterStore } from '../store/counter-store';
 
 const Tab = createBottomTabNavigator();
 
 export const BottomTabsNavigator = () => {
+
+    const count = useCounterStore( state => state.count );
+
     return (
         <Tab.Navigator>
             <Tab.Screen
